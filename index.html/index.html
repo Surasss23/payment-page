@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laksh Gleam Payment Page</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    header {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 20px 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .container {
+      margin: 20px auto;
+      max-width: 600px;
+      padding: 20px;
+    }
+    .qr-container {
+      border: 2px solid #000000;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      position: relative;
+    }
+    .qr-text {
+      position: absolute;
+      top: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .input-group {
+      margin: 20px 0;
+      text-align: left;
+    }
+    .input-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .input-group input {
+      width: calc(100% - 20px);
+      padding: 10px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .total-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .total-container div {
+      background-color: #000000;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    .button-group img {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px auto;
+      display: block;
+      cursor: pointer;
+    }
+    footer {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>Laksh Gleam Payment Page</header>
+
+<div class="container">
+  <div class="qr-container" id="qrCodeContainer">
+    <div class="qr-text">Laksh Gleam</div>
+  </div>
+
+  <div class="input-group">
+    <label for="productID">Product ID:</label>
+    <input type="text" id="productID" placeholder="Enter Product ID Here (e.g., LG01)" />
+  </div>
+
+  <div class="total-container">
+    <div>Total</div>
+    <div id="amount">₹0</div>
+  </div>
+
+  <div class="button-group">
+    <!-- Buttons with images -->
+    <img src="googlepay23.img" alt="GPay" onclick="openPaymentApp('gpay')" />
+    <img src="phonepe23.img" alt="PhonePe" onclick="openPaymentApp('phonepe')" />
+    <img src="paytm23.img" alt="Paytm" onclick="openPaymentApp('paytm')" />
+    <img src="fampay23.img" alt="Fampay" onclick="openPaymentApp('fampay')" />
+    <img src="whatsapp23.img" alt="WhatsApp" onclick="sendWhatsapp()" />
+  </div>
+</div>
+
+<footer>
+  <a href="#" onclick="sendPaymentDone()">LakshGleam</a>
+</footer>
+
+<script>
+  // Product ID and Price Mapping (in INR)
+  const prices = {
+    LG01: 100,
+    LG02: 200,
+    LG03: 300,
+    LG04: 400,
+    LG05: 500,
+    LG06: 600,
+    LG07: 700,
+    LG08: 800,
+    LG09: 900,
+    LG10: 1000,
+    LG11: 1100,
+    LG12: 1200,
+    LG13: 1300,
+    LG14: 1400,
+    LG15: 1500,
+    LG16: 1600,
+    LG17: 1700,
+    LG18: 1800,
+    LG19: 1900,
+    LG20: 2000,
+    LG21: 2100,
+    LG22: 2200,
+    LG23: 2300,
+  };
+
+  // Update QR Code and Total on Product ID Input
+  document.getElementById('productID').addEventListener('input', function () {
+    const productID = this.value.toUpperCase();
+    const amount = prices[productID] || 0;
+    document.getElementById('amount').innerText = `₹${amount}`;
+    if (amount > 0) {
+      const qrData = `upi://pay?pa=surajpandey8143@okhdfcbank&pn=Suraj%20Pandey&am=${amount}&cu=INR&aid=uGICAgMD2h-7bDQ`;
+      generateQRCode(qrData);
+    } else {
+      document.getElementById('qrCodeContainer').innerHTML = '<div class="qr-text">Laksh Gleam</div>';
+    }
+  });
+
+  // Generate QR Code
+  function generateQRCode(data) {
+    const qrCodeContainer = document.getElementById('qrCodeContainer');
+    qrCodeContainer.innerHTML = '<div class="qr-text">Laksh Gleam</div>'; // Add text
+    const qr = qrcode(0, 'L');
+    qr.addData(data);
+    qr.make();
+    qrCodeContainer.innerHTML += qr.createSvgTag({ scalable: true });
+  }
+
+  // Payment App Link
+  function openPaymentApp(app) {
+    const productID = document.getElementById('productID').value.toUpperCase();
+    const amount = document.getElementById('amount').innerText.replace('₹', '');
+    if (amount !== '₹0' && productID in prices) {
+      alert(`Opening ${app} for ₹${amount} payment.`);
+    } else {
+      alert('Please enter a valid Product ID.');
+    }
+  }
+
+  // Send WhatsApp HELP Message
+  function sendWhatsapp() {
+    const url = 'https://wa.me/7989386499?text=HELP';
+    window.open(url, '_blank');
+  }
+
+  // Send Payment Done Message
+  function sendPaymentDone() {
+    const url = 'https://wa.me/7989386499?text=Payment Done';
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
