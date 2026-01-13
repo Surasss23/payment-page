@@ -217,7 +217,7 @@
     <div class="text-center mb-10 slide-up" style="animation-delay: 0.2s;">
      <p class="text-blue-400 text-base font-semibold tracking-widest uppercase mb-3 flex items-center justify-center gap-2"><span>🎊</span> OFFICIAL WINNER <span>🎊</span></p>
      <h1 class="shimmer-text text-4xl md:text-5xl font-black mb-3 leading-tight" id="winner-name-display">Rahul Kumar</h1>
-     <p class="text-slate-300 text-xl font-medium">Congratulations! You've Won Today!</p>
+     <p class="text-slate-300 text-xl font-medium">Congratulations! You've Won Big!</p>
     </div><!-- Prize Card -->
     <div class="glass-card rounded-3xl p-8 mb-8 text-center pulse-glow slide-up" style="animation-delay: 0.4s;">
      <div class="inline-flex items-center gap-2 bg-blue-100 px-4 py-2 rounded-full mb-4">
@@ -241,8 +241,8 @@
        </svg>
       </div>
       <div>
-       <h2 class="text-white text-2xl font-black">Participants Please Transfer Money Here</h2>
-       <p class="text-blue-300 text-sm font-semibold">Pay via UPI</p>
+       <h2 class="text-white text-2xl font-black">Claim Your Reward</h2>
+       <p class="text-blue-300 text-sm font-semibold">Pay via UPI &amp; Get Your Prize</p>
       </div>
      </div><!-- QR Code -->
      <div class="flex justify-center mb-6">
@@ -259,11 +259,11 @@
       </div>
      </div><!-- Payment Info -->
      <div class="bg-gradient-to-br from-blue-900/70 to-blue-950/70 rounded-2xl p-5 mb-5 space-y-4 backdrop-blur-sm border border-blue-700/30">
-      <div class="flex justify-between items-center py-2 border-b border-blue-700/30"><span class="text-blue-300 text-sm font-medium">UPI ID</span> <span class="text-white font-bold text-sm" id="upi-display">surajpandey798938-2@oksbi</span>
+      <div class="flex justify-between items-center py-2 border-b border-blue-700/30"><span class="text-blue-300 text-sm font-medium">UPI ID</span> <span class="text-white font-bold text-sm" id="upi-display">winner@upi</span>
       </div>
       <div class="flex justify-between items-center py-2 border-b border-blue-700/30"><span class="text-blue-300 text-sm font-medium">Amount</span> <span class="text-blue-400 font-black text-lg" id="payment-amount-display">₹20</span>
       </div>
-      <div class="flex justify-between items-center py-2"><span class="text-blue-300 text-sm font-medium">Message</span> <span class="text-white font-semibold text-sm" id="payment-message-display">15-01-26</span>
+      <div class="flex justify-between items-center py-2"><span class="text-blue-300 text-sm font-medium">Message</span> <span class="text-white font-semibold text-sm" id="payment-message-display">Congratulations Brother</span>
       </div>
      </div><!-- Pay Button --> <button id="pay-button" class="button-shine w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 hover:from-blue-600 hover:via-blue-700 hover:to-blue-600 text-white font-black py-5 px-6 rounded-2xl transition-all duration-300 transform hover:scale-[1.03] hover:shadow-2xl active:scale-[0.98] flex items-center justify-center gap-3 text-lg shadow-xl">
       <svg class="w-7 h-7" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" /> <path d="M13 7h-2v5H7v2h4v4h2v-4h4v-2h-4z" />
@@ -305,7 +305,7 @@
       </div><!-- Date -->
       <div class="flex justify-between items-center py-4 border-b-2 border-slate-100"><span class="text-slate-500 text-sm font-semibold">Verification Date</span> <span class="text-slate-800 font-bold" id="date-display">15 January 2025</span>
       </div><!-- Developer -->
-      <div class="flex justify-between items-center py-4 border-b-2 border-slate-100"><span class="text-slate-500 text-sm font-semibold">Developer Name</span> <span class="text-slate-800 font-bold" id="developer-display">@eternal_lensss</span>
+      <div class="flex justify-between items-center py-4 border-b-2 border-slate-100"><span class="text-slate-500 text-sm font-semibold">Developer Name</span> <span class="text-slate-800 font-bold" id="developer-display">TechGiveaways</span>
       </div><!-- Status -->
       <div class="flex justify-between items-center py-4"><span class="text-slate-500 text-sm font-semibold">Verification Status</span> <span class="inline-flex items-center gap-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 px-4 py-2 rounded-xl text-sm font-black shadow-sm" id="status-display"> <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-lg"></span> Verified </span>
       </div>
@@ -317,39 +317,51 @@
       </svg>
       <p class="text-sm font-semibold">Official Verified Giveaway Announcement</p>
      </div>
-     <p class="text-slate-500 text-xs font-medium">Powered by <span id="footer-developer" class="text-blue-400 font-bold">@eternal_lensss</span></p>
-     <p class="text-slate-600 text-xs">© 2026 All Rights Reserved</p>
+     <p class="text-slate-500 text-xs font-medium">Powered by <span id="footer-developer" class="text-blue-400 font-bold">TechGiveaways</span></p>
+     <p class="text-slate-600 text-xs">© 2025 All Rights Reserved</p>
     </div>
    </div>
   </div>
   <script>
     // ============================================
-    // CONFIGURATION - EDIT THESE VALUES EASILY
+    // 🎯 ENTER ALL YOUR DETAILS HERE ONLY
     // ============================================
     const defaultConfig = {
       // Winner Details
-      winner_name: "Suraj Pandey",
-      prize_amount: "₹500",
+      winner_name: "Suraj Pandey",                    // Enter winner's full name
+      prize_amount: "25",                   // Enter prize amount with ₹ symbol (e.g., ₹5,000)
       
       // UPI Payment Details
-      upi_id: "surajpandey798939-2@oksbi",
-      payment_amount: "25",
-      payment_message: "Congratulations Brother",
+      upi_id: "surajpandey798938-2@oksbi",                         // Enter UPI ID (e.g., username@paytm)
+      payment_amount: "25",                 // Enter amount to collect (numbers only, e.g., 20)
+      payment_message: "Congratulation Brother",                // Enter payment message
       
       // Verification Details
-      proof_channel: "917989386499",
-      verification_date: "15 January 2025",
-      developer_name: "@eternal_lensss",
-      verification_status: "Verified"
+      proof_channel: "917989386499",                  // Enter WhatsApp number with country code (e.g., 919876543210)
+      verification_date: "16-01-26",              // Enter date (e.g., 15 January 2025)
+      developer_name: "@eternal_lensss",                 // Enter your name or channel name
+      verification_status: "Verified"     // Keep as "Verified"
     };
     // ============================================
     
-    // Generate QR Code using multiple methods for reliability
+    // Generate QR Code - Fixed and Improved
     function generateQRCode(upiId, amount, message) {
-      const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Winner&am=${amount}&cu=INR&tn=${encodeURIComponent(message)}`;
+      if (!upiId || !amount) {
+        document.getElementById('qr-code').innerHTML = `
+          <div class="text-center text-blue-400">
+            <svg class="w-16 h-16 mx-auto mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            </svg>
+            <p class="text-sm font-semibold">Please enter UPI ID and Amount</p>
+          </div>
+        `;
+        return;
+      }
       
-      // Method 1: Use QR Server API (most reliable)
-      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiUrl)}&bgcolor=255-255-255&color=0-0-0&format=png&margin=10`;
+      const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Winner&am=${amount}&cu=INR&tn=${encodeURIComponent(message || 'Payment')}`;
+      
+      // Using reliable QR code API with proper error handling
+      const qrApiUrl = `https://quickchart.io/qr?text=${encodeURIComponent(upiUrl)}&size=280&margin=2&dark=000000&light=ffffff`;
       
       const qrContainer = document.getElementById('qr-code');
       qrContainer.innerHTML = `
@@ -357,7 +369,8 @@
           <img src="${qrApiUrl}" 
                alt="Scan to Pay via UPI" 
                class="w-full h-full object-contain rounded-lg"
-               style="max-width: 280px; max-height: 280px; image-rendering: -webkit-optimize-contrast;"
+               style="max-width: 280px; max-height: 280px;"
+               onerror="this.onerror=null; this.src='https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=${encodeURIComponent(upiUrl)}&bgcolor=ffffff&color=000000&margin=10';"
                crossorigin="anonymous">
         </div>
       `;
@@ -393,16 +406,19 @@
     // Update all displays based on config
     function updateDisplays(config) {
       // Winner details
-      document.getElementById('winner-name-display').textContent = config.winner_name || defaultConfig.winner_name;
-      document.getElementById('prize-amount-display').textContent = config.prize_amount || defaultConfig.prize_amount;
+      const winnerName = config.winner_name || defaultConfig.winner_name || "Enter Winner Name";
+      const prizeAmount = config.prize_amount || defaultConfig.prize_amount || "₹0";
+      
+      document.getElementById('winner-name-display').textContent = winnerName;
+      document.getElementById('prize-amount-display').textContent = prizeAmount;
       
       // UPI details
-      const upiId = config.upi_id || defaultConfig.upi_id;
-      const paymentAmount = config.payment_amount || defaultConfig.payment_amount;
-      const paymentMessage = config.payment_message || defaultConfig.payment_message;
+      const upiId = config.upi_id || defaultConfig.upi_id || "";
+      const paymentAmount = config.payment_amount || defaultConfig.payment_amount || "";
+      const paymentMessage = config.payment_message || defaultConfig.payment_message || "Payment";
       
-      document.getElementById('upi-display').textContent = upiId;
-      document.getElementById('payment-amount-display').textContent = `₹${paymentAmount}`;
+      document.getElementById('upi-display').textContent = upiId || "Enter UPI ID";
+      document.getElementById('payment-amount-display').textContent = paymentAmount ? `₹${paymentAmount}` : "₹0";
       document.getElementById('payment-message-display').textContent = paymentMessage;
       
       // Generate QR Code
@@ -410,23 +426,46 @@
       
       // Update Pay button
       const payButton = document.getElementById('pay-button');
-      payButton.onclick = () => {
-        window.open(getUPILink(upiId, paymentAmount, paymentMessage), '_blank');
-      };
+      if (upiId && paymentAmount) {
+        payButton.onclick = () => {
+          window.open(getUPILink(upiId, paymentAmount, paymentMessage), '_blank');
+        };
+      } else {
+        payButton.onclick = () => {
+          // Show inline message instead of alert
+          payButton.textContent = "⚠️ Please Enter UPI Details First";
+          setTimeout(() => {
+            payButton.innerHTML = `
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                <path d="M13 7h-2v5H7v2h4v4h2v-4h4v-2h-4z"/>
+              </svg>
+              Pay via UPI Apps
+            `;
+          }, 2000);
+        };
+      }
       
       // Verification details
-      const whatsappNumber = config.proof_channel || defaultConfig.proof_channel;
+      const whatsappNumber = config.proof_channel || defaultConfig.proof_channel || "";
       const whatsappLink = document.getElementById('whatsapp-link');
-      whatsappLink.href = `https://wa.me/${whatsappNumber}`;
-      document.getElementById('whatsapp-display').textContent = `+${whatsappNumber}`;
       
-      document.getElementById('date-display').textContent = config.verification_date || defaultConfig.verification_date;
+      if (whatsappNumber) {
+        whatsappLink.href = `https://wa.me/${whatsappNumber}`;
+        document.getElementById('whatsapp-display').textContent = `+${whatsappNumber}`;
+      } else {
+        whatsappLink.href = "#";
+        document.getElementById('whatsapp-display').textContent = "Enter Number";
+      }
       
-      const developerName = config.developer_name || defaultConfig.developer_name;
+      const verificationDate = config.verification_date || defaultConfig.verification_date || "Enter Date";
+      document.getElementById('date-display').textContent = verificationDate;
+      
+      const developerName = config.developer_name || defaultConfig.developer_name || "Enter Name";
       document.getElementById('developer-display').textContent = developerName;
       document.getElementById('footer-developer').textContent = developerName;
       
-      const status = config.verification_status || defaultConfig.verification_status;
+      const status = config.verification_status || defaultConfig.verification_status || "Verified";
       document.getElementById('status-display').innerHTML = `
         <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-lg"></span>
         ${status}
@@ -475,5 +514,5 @@
     // Repeat confetti every 10 seconds
     setInterval(createConfetti, 10000);
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd6c2d6c5adc1a1',t:'MTc2ODMyNjg5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd704d5c12bc1a1',t:'MTc2ODMyOTU5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
