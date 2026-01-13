@@ -217,7 +217,7 @@
     <div class="text-center mb-10 slide-up" style="animation-delay: 0.2s;">
      <p class="text-blue-400 text-base font-semibold tracking-widest uppercase mb-3 flex items-center justify-center gap-2"><span>🎊</span> OFFICIAL WINNER <span>🎊</span></p>
      <h1 class="shimmer-text text-4xl md:text-5xl font-black mb-3 leading-tight" id="winner-name-display">Rahul Kumar</h1>
-     <p class="text-slate-300 text-xl font-medium">Congratulations! You've Won Big!</p>
+     <p class="text-slate-300 text-xl font-medium">Congratulations! You've Won Today!</p>
     </div><!-- Prize Card -->
     <div class="glass-card rounded-3xl p-8 mb-8 text-center pulse-glow slide-up" style="animation-delay: 0.4s;">
      <div class="inline-flex items-center gap-2 bg-blue-100 px-4 py-2 rounded-full mb-4">
@@ -234,15 +234,26 @@
     </div><!-- UPI Payment Section -->
     <div class="gradient-border rounded-3xl p-6 mb-8 slide-up" style="animation-delay: 0.6s;">
      <div class="flex items-center justify-center gap-3 mb-6">
-      <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <h2 class="text-white text-2xl font-bold">Claim Your Reward</h2>
+      <div class="bg-white rounded-xl p-2 shadow-lg">
+       <svg class="w-10 h-10" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" rx="8" fill="#097939" /> <path d="M16 18C16 16.8954 16.8954 16 18 16H30C31.1046 16 32 16.8954 32 18V30C32 31.1046 31.1046 32 30 32H18C16.8954 32 16 31.1046 16 30V18Z" fill="white" /> <path d="M20 24C20 22.8954 20.8954 22 22 22H26C27.1046 22 28 22.8954 28 24V28C28 29.1046 27.1046 30 26 30H22C20.8954 30 20 29.1046 20 28V24Z" fill="#097939" /> <text x="24" y="28" text-anchor="middle" fill="white" font-size="8" font-weight="bold">
+         ₹
+        </text>
+       </svg>
+      </div>
+      <div>
+       <h2 class="text-white text-2xl font-black">Participants Please Transfer Money Here</h2>
+       <p class="text-blue-300 text-sm font-semibold">Pay via UPI</p>
+      </div>
      </div><!-- QR Code -->
-     <div class="qr-container mb-6">
-      <div id="qr-code" class="flex items-center justify-center">
-       <div class="w-56 h-56 flex items-center justify-center">
-        <div class="animate-pulse text-blue-400">
-         Loading QR...
+     <div class="flex justify-center mb-6">
+      <div class="qr-container" style="width: 300px; height: 300px;">
+       <div id="qr-code" class="w-full h-full flex items-center justify-center">
+        <div class="w-full h-full flex items-center justify-center">
+         <div class="animate-pulse text-blue-400 text-center">
+          <svg class="w-12 h-12 mx-auto mb-2 animate-spin" fill="none" stroke="currentColor" viewbox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" /> <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+          </svg>
+          <p class="text-sm font-semibold">Generating QR Code...</p>
+         </div>
         </div>
        </div>
       </div>
@@ -252,12 +263,29 @@
       </div>
       <div class="flex justify-between items-center py-2 border-b border-blue-700/30"><span class="text-blue-300 text-sm font-medium">Amount</span> <span class="text-blue-400 font-black text-lg" id="payment-amount-display">₹20</span>
       </div>
-      <div class="flex justify-between items-center py-2"><span class="text-blue-300 text-sm font-medium">Message</span> <span class="text-white font-semibold text-sm" id="payment-message-display">Congratulations Brother</span>
+      <div class="flex justify-between items-center py-2"><span class="text-blue-300 text-sm font-medium">Date</span> <span class="text-white font-semibold text-sm" id="payment-message-display">15-01-26</span>
       </div>
      </div><!-- Pay Button --> <button id="pay-button" class="button-shine w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 hover:from-blue-600 hover:via-blue-700 hover:to-blue-600 text-white font-black py-5 px-6 rounded-2xl transition-all duration-300 transform hover:scale-[1.03] hover:shadow-2xl active:scale-[0.98] flex items-center justify-center gap-3 text-lg shadow-xl">
-      <svg class="w-7 h-7" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z" />
+      <svg class="w-7 h-7" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" /> <path d="M13 7h-2v5H7v2h4v4h2v-4h4v-2h-4z" />
       </svg> Pay via UPI Apps </button>
-     <p class="text-blue-300 text-xs text-center mt-4 font-medium">Scan QR code or click button to open UPI apps instantly</p>
+     <p class="text-blue-300 text-xs text-center mt-4 font-medium">Scan QR code or click button to pay instantly via any UPI app</p>
+     <div class="mt-5 pt-5 border-t border-blue-700/30">
+      <p class="text-blue-200 text-xs text-center mb-3 font-semibold">Supported UPI Apps</p>
+      <div class="flex items-center justify-center gap-3 flex-wrap">
+       <div class="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-semibold">
+        Google Pay
+       </div>
+       <div class="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-semibold">
+        PhonePe
+       </div>
+       <div class="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-semibold">
+        Paytm
+       </div>
+       <div class="bg-white/10 backdrop-blur-sm rounded-lg px-3 py-1.5 text-white text-xs font-semibold">
+        BHIM
+       </div>
+      </div>
+     </div>
     </div><!-- Verification Proof Section -->
     <div class="glass-card rounded-3xl p-7 mb-8 slide-up" style="animation-delay: 0.8s;">
      <div class="flex items-center gap-4 mb-6">
@@ -277,7 +305,7 @@
       </div><!-- Date -->
       <div class="flex justify-between items-center py-4 border-b-2 border-slate-100"><span class="text-slate-500 text-sm font-semibold">Verification Date</span> <span class="text-slate-800 font-bold" id="date-display">15 January 2025</span>
       </div><!-- Developer -->
-      <div class="flex justify-between items-center py-4 border-b-2 border-slate-100"><span class="text-slate-500 text-sm font-semibold">Developer Name</span> <span class="text-slate-800 font-bold" id="developer-display">TechGiveaways</span>
+      <div class="flex justify-between items-center py-4 border-b-2 border-slate-100"><span class="text-slate-500 text-sm font-semibold">Developer Name</span> <span class="text-slate-800 font-bold" id="developer-display">@eternal_lensss</span>
       </div><!-- Status -->
       <div class="flex justify-between items-center py-4"><span class="text-slate-500 text-sm font-semibold">Verification Status</span> <span class="inline-flex items-center gap-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 px-4 py-2 rounded-xl text-sm font-black shadow-sm" id="status-display"> <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-lg"></span> Verified </span>
       </div>
@@ -289,8 +317,8 @@
       </svg>
       <p class="text-sm font-semibold">Official Verified Giveaway Announcement</p>
      </div>
-     <p class="text-slate-500 text-xs font-medium">Powered by <span id="footer-developer" class="text-blue-400 font-bold">TechGiveaways</span></p>
-     <p class="text-slate-600 text-xs">© 2025 All Rights Reserved</p>
+     <p class="text-slate-500 text-xs font-medium">Powered by <span id="footer-developer" class="text-blue-400 font-bold">@eternal_lensss</span></p>
+     <p class="text-slate-600 text-xs">© 2026 All Rights Reserved</p>
     </div>
    </div>
   </div>
@@ -304,25 +332,35 @@
       prize_amount: "₹500",
       
       // UPI Payment Details
-      upi_id: "surajpandey798938-2@oksbi",
+      upi_id: "surajpandey798939-2@oksbi",
       payment_amount: "25",
       payment_message: "Congratulations Brother",
       
       // Verification Details
       proof_channel: "917989386499",
       verification_date: "15 January 2025",
-      developer_name: "@eternal_lens",
+      developer_name: "@eternal_lensss",
       verification_status: "Verified"
     };
     // ============================================
     
-    // Generate QR Code using Google Charts API (more reliable)
+    // Generate QR Code using multiple methods for reliability
     function generateQRCode(upiId, amount, message) {
       const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Winner&am=${amount}&cu=INR&tn=${encodeURIComponent(message)}`;
-      const qrApiUrl = `https://chart.googleapis.com/chart?cht=qr&chs=400x400&chl=${encodeURIComponent(upiUrl)}&choe=UTF-8`;
+      
+      // Method 1: Use QR Server API (most reliable)
+      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(upiUrl)}&bgcolor=255-255-255&color=0-0-0&format=png&margin=10`;
       
       const qrContainer = document.getElementById('qr-code');
-      qrContainer.innerHTML = `<img src="${qrApiUrl}" alt="UPI Payment QR Code" class="w-56 h-56 rounded-lg" style="image-rendering: crisp-edges;" onload="this.style.opacity='1'; this.style.transform='scale(1)';" style="opacity: 0; transform: scale(0.8); transition: all 0.3s ease;" onerror="this.src=''; this.alt='QR Code failed to load'; this.parentElement.innerHTML='<div class=\\'text-blue-400 text-center p-6 text-sm font-semibold\\'>QR Code temporarily unavailable<br>Use Pay Button below</div>';">`;
+      qrContainer.innerHTML = `
+        <div class="w-full h-full flex items-center justify-center">
+          <img src="${qrApiUrl}" 
+               alt="Scan to Pay via UPI" 
+               class="w-full h-full object-contain rounded-lg"
+               style="max-width: 280px; max-height: 280px; image-rendering: -webkit-optimize-contrast;"
+               crossorigin="anonymous">
+        </div>
+      `;
     }
     
     // Generate UPI deep link
@@ -437,5 +475,5 @@
     // Repeat confetti every 10 seconds
     setInterval(createConfetti, 10000);
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd6b4e4a524c1a1',t:'MTc2ODMyNjMyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd6c2d6c5adc1a1',t:'MTc2ODMyNjg5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
