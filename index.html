@@ -3,24 +3,24 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Porter Winner Announcement</title>
+  <title>Winner Announcement</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/_sdk/element_sdk.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
   <style>
     body {
       box-sizing: border-box;
     }
     
     * {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
     
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(10deg); }
     }
     
     @keyframes shimmer {
@@ -29,142 +29,268 @@
     }
     
     @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
-      50% { box-shadow: 0 0 40px rgba(251, 191, 36, 0.6); }
+      0%, 100% { 
+        box-shadow: 0 0 40px rgba(59, 130, 246, 0.5), 0 0 80px rgba(96, 165, 250, 0.3), 0 20px 60px rgba(37, 99, 235, 0.2); 
+      }
+      50% { 
+        box-shadow: 0 0 60px rgba(59, 130, 246, 0.7), 0 0 100px rgba(96, 165, 250, 0.5), 0 25px 80px rgba(37, 99, 235, 0.3); 
+      }
     }
     
     @keyframes confetti-fall {
       0% { transform: translateY(-100%) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100%) rotate(720deg); opacity: 0; }
+      100% { transform: translateY(100%) rotate(1080deg); opacity: 0; }
+    }
+    
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1) rotate(180deg); }
+    }
+    
+    @keyframes slide-up {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes bounce-in {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.05); }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    
+    @keyframes glow-pulse {
+      0%, 100% { filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.6)); }
+      50% { filter: drop-shadow(0 0 25px rgba(59, 130, 246, 0.9)); }
     }
     
     .float-animation {
-      animation: float 3s ease-in-out infinite;
+      animation: float 5s ease-in-out infinite;
     }
     
     .shimmer-text {
-      background: linear-gradient(90deg, #fbbf24 0%, #fef3c7 25%, #fbbf24 50%, #fef3c7 75%, #fbbf24 100%);
+      background: linear-gradient(90deg, #1e40af 0%, #3b82f6 20%, #60a5fa 40%, #93c5fd 50%, #60a5fa 60%, #3b82f6 80%, #1e40af 100%);
       background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: shimmer 3s linear infinite;
+      animation: shimmer 4s linear infinite;
+      filter: drop-shadow(0 2px 8px rgba(59, 130, 246, 0.3));
     }
     
     .pulse-glow {
-      animation: pulse-glow 2s ease-in-out infinite;
+      animation: pulse-glow 3s ease-in-out infinite;
     }
     
     .confetti {
       position: fixed;
-      width: 10px;
-      height: 10px;
-      top: -10px;
-      animation: confetti-fall 3s linear forwards;
+      width: 14px;
+      height: 14px;
+      top: -30px;
+      animation: confetti-fall 5s linear forwards;
       pointer-events: none;
       z-index: 100;
+      border-radius: 3px;
     }
     
     .glass-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.99) 0%, rgba(248, 250, 252, 0.98) 100%);
+      backdrop-filter: blur(30px);
+      border: 2px solid rgba(147, 197, 253, 0.4);
+      box-shadow: 0 15px 50px rgba(59, 130, 246, 0.15), 0 5px 15px rgba(37, 99, 235, 0.1);
     }
     
     .gradient-border {
       position: relative;
-      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 30%, #2563eb 70%, #3b82f6 100%);
+      box-shadow: 0 20px 60px rgba(37, 99, 235, 0.3);
     }
     
     .gradient-border::before {
       content: '';
       position: absolute;
       inset: 0;
-      padding: 2px;
-      background: linear-gradient(135deg, #fbbf24, #f59e0b, #fbbf24);
+      padding: 3px;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6, #2563eb, #60a5fa);
+      background-size: 200% 200%;
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       border-radius: inherit;
       pointer-events: none;
+      animation: shimmer 3s linear infinite;
+    }
+    
+    .slide-up {
+      animation: slide-up 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    
+    .bounce-in {
+      animation: bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    }
+    
+    .qr-container {
+      background: white;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2), inset 0 0 0 3px #3b82f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .qr-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(59, 130, 246, 0.05) 50%, transparent 100%);
+      pointer-events: none;
+    }
+    
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #60a5fa 0%, transparent 70%);
+      border-radius: 50%;
+      animation: sparkle 3s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    .trophy-glow {
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+    
+    .button-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .button-shine::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+    }
+    
+    .button-shine:hover::after {
+      transform: translateX(100%);
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full">
-  <div id="app-container" class="min-h-full w-full overflow-auto" style="background: linear-gradient(135deg, #0f0a1e 0%, #1a1333 50%, #0f172a 100%);"><!-- Confetti Container -->
-   <div id="confetti-container"></div><!-- Main Content -->
-   <div class="w-full max-w-md mx-auto px-4 py-8"><!-- Trophy Icon -->
-    <div class="flex justify-center mb-6">
-     <div class="float-animation">
-      <svg width="80" height="80" viewbox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="38" fill="url(#trophy-gradient)" stroke="#fbbf24" stroke-width="2" /> <path d="M28 25H52V30C52 32 54 34 56 34H58V38C58 42 54 46 50 46H48V50H52V54H28V50H32V46H30C26 46 22 42 22 38V34H24C26 34 28 32 28 30V25Z" fill="#fbbf24" /> <path d="M35 54H45V58H35V54Z" fill="#f59e0b" /> <circle cx="40" cy="35" r="6" fill="#1e1b4b" /> <text x="40" y="38" text-anchor="middle" fill="#fbbf24" font-size="8" font-weight="bold">
-        1
-       </text> <defs>
-        <lineargradient id="trophy-gradient" x1="0" y1="0" x2="80" y2="80">
-         <stop offset="0%" stop-color="#1e1b4b" />
-         <stop offset="100%" stop-color="#312e81" />
+  <div id="app-container" class="min-h-full w-full overflow-auto" style="background: linear-gradient(135deg, #0a1628 0%, #0f172a 25%, #1e293b 50%, #0f172a 75%, #0a1628 100%);"><!-- Confetti Container -->
+   <div id="confetti-container"></div><!-- Sparkles -->
+   <div class="sparkle" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+   <div class="sparkle" style="top: 20%; right: 20%; animation-delay: 1s;"></div>
+   <div class="sparkle" style="top: 70%; left: 10%; animation-delay: 2s;"></div>
+   <div class="sparkle" style="top: 80%; right: 15%; animation-delay: 1.5s;"></div><!-- Main Content -->
+   <div class="w-full max-w-lg mx-auto px-5 py-10"><!-- Trophy Icon -->
+    <div class="flex justify-center mb-8 bounce-in">
+     <div class="float-animation trophy-glow">
+      <svg width="120" height="120" viewbox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><defs>
+        <lineargradient id="trophy-gradient" x1="0" y1="0" x2="120" y2="120">
+         <stop offset="0%" stop-color="#3b82f6" />
+         <stop offset="50%" stop-color="#2563eb" />
+         <stop offset="100%" stop-color="#1e40af" />
         </lineargradient>
-       </defs>
+        <lineargradient id="trophy-shine" x1="0" y1="0" x2="120" y2="120">
+         <stop offset="0%" stop-color="#60a5fa" />
+         <stop offset="100%" stop-color="#93c5fd" />
+        </lineargradient>
+       </defs> <circle cx="60" cy="60" r="56" fill="url(#trophy-gradient)" stroke="#60a5fa" stroke-width="3" opacity="0.2" /> <circle cx="60" cy="60" r="50" fill="url(#trophy-gradient)" stroke="#3b82f6" stroke-width="3" /> <!-- Trophy Cup --> <path d="M38 35 L38 45 C38 47 36 49 34 49 L30 49 L30 55 C30 61 34 67 40 69 L40 75 L35 75 L35 82 L85 82 L85 75 L80 75 L80 69 C86 67 90 61 90 55 L90 49 L86 49 C84 49 82 47 82 45 L82 35 Z" fill="url(#trophy-shine)" stroke="#1e40af" stroke-width="2" /> <!-- Winner Badge --> <circle cx="60" cy="52" r="12" fill="#1e40af" stroke="#60a5fa" stroke-width="2" /> <text x="60" y="58" text-anchor="middle" fill="#60a5fa" font-size="14" font-weight="900" font-family="Poppins">
+        1
+       </text> <!-- Stars --> <path d="M60 20 L62 26 L68 26 L63 30 L65 36 L60 32 L55 36 L57 30 L52 26 L58 26 Z" fill="#60a5fa" opacity="0.8" /> <path d="M35 48 L36 51 L39 51 L37 53 L38 56 L35 54 L32 56 L33 53 L31 51 L34 51 Z" fill="#93c5fd" opacity="0.6" /> <path d="M85 48 L86 51 L89 51 L87 53 L88 56 L85 54 L82 56 L83 53 L81 51 L84 51 Z" fill="#93c5fd" opacity="0.6" />
       </svg>
      </div>
     </div><!-- Winner Announcement Header -->
-    <div class="text-center mb-8">
-     <p class="text-amber-400 text-sm font-medium tracking-widest uppercase mb-2">🎉 Congratulations 🎉</p>
-     <h1 class="shimmer-text text-3xl font-extrabold mb-2" id="winner-name-display">Suraj Pandey</h1>
-     <p class="text-gray-300 text-lg">You've Won!</p>
+    <div class="text-center mb-10 slide-up" style="animation-delay: 0.2s;">
+     <p class="text-blue-400 text-base font-semibold tracking-widest uppercase mb-3 flex items-center justify-center gap-2"><span>🎊</span> OFFICIAL WINNER <span>🎊</span></p>
+     <h1 class="shimmer-text text-4xl md:text-5xl font-black mb-3 leading-tight" id="winner-name-display">Rahul Kumar</h1>
+     <p class="text-slate-300 text-xl font-medium">Congratulations! You've Won Big!</p>
     </div><!-- Prize Card -->
-    <div class="glass-card rounded-2xl p-6 mb-6 text-center pulse-glow">
-     <p class="text-gray-600 text-sm font-medium uppercase tracking-wider mb-2">Prize Amount</p>
-     <p class="text-5xl font-extrabold text-indigo-900 mb-2" id="prize-amount-display">₹200</p>
-     <div class="flex items-center justify-center gap-2 text-green-600">
-      <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-      </svg><span class="font-medium">Verified Winner</span>
+    <div class="glass-card rounded-3xl p-8 mb-8 text-center pulse-glow slide-up" style="animation-delay: 0.4s;">
+     <div class="inline-flex items-center gap-2 bg-blue-100 px-4 py-2 rounded-full mb-4">
+      <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+      </svg><span class="text-blue-700 font-bold text-sm tracking-wide">VERIFIED WINNER</span>
+     </div>
+     <p class="text-slate-500 text-sm font-semibold uppercase tracking-widest mb-3">Your Prize Amount</p>
+     <p class="text-6xl md:text-7xl font-black mb-2 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent" id="prize-amount-display">₹5,000</p>
+     <div class="mt-6 pt-6 border-t-2 border-blue-100">
+      <div class="flex items-center justify-center gap-3 text-green-600">
+       <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div><span class="font-bold text-lg">Payment Verified &amp; Ready</span>
+      </div>
      </div>
     </div><!-- UPI Payment Section -->
-    <div class="gradient-border rounded-2xl p-6 mb-6">
-     <h2 class="text-white text-lg font-semibold text-center mb-4">Claim Your Reward</h2><!-- QR Code -->
-     <div class="bg-white rounded-xl p-4 mb-4 flex justify-center">
-      <div id="qr-code" class="w-48 h-48 flex items-center justify-center"><!-- QR Code will be generated here -->
+    <div class="gradient-border rounded-3xl p-6 mb-8 slide-up" style="animation-delay: 0.6s;">
+     <div class="flex items-center justify-center gap-3 mb-6">
+      <svg class="w-8 h-8 text-blue-300" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <h2 class="text-white text-2xl font-bold">Claim Your Reward</h2>
+     </div><!-- QR Code -->
+     <div class="qr-container mb-6">
+      <div id="qr-code" class="flex items-center justify-center">
+       <div class="w-56 h-56 flex items-center justify-center">
+        <div class="animate-pulse text-blue-400">
+         Loading QR...
+        </div>
+       </div>
       </div>
      </div><!-- Payment Info -->
-     <div class="bg-indigo-900/50 rounded-xl p-4 mb-4 space-y-3">
-      <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">UPI ID</span> <span class="text-white font-medium text-sm" id="upi-display">surajpandey798939-2@oksbi</span>
+     <div class="bg-gradient-to-br from-blue-900/70 to-blue-950/70 rounded-2xl p-5 mb-5 space-y-4 backdrop-blur-sm border border-blue-700/30">
+      <div class="flex justify-between items-center py-2 border-b border-blue-700/30"><span class="text-blue-300 text-sm font-medium">UPI ID</span> <span class="text-white font-bold text-sm" id="upi-display">winner@upi</span>
       </div>
-      <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">Amount</span> <span class="text-amber-400 font-bold" id="payment-amount-display">₹20</span>
+      <div class="flex justify-between items-center py-2 border-b border-blue-700/30"><span class="text-blue-300 text-sm font-medium">Amount</span> <span class="text-blue-400 font-black text-lg" id="payment-amount-display">₹20</span>
       </div>
-      <div class="flex justify-between items-center"><span class="text-gray-400 text-sm">Message</span> <span class="text-white font-medium text-sm" id="payment-message-display">Congratulations Brother</span>
+      <div class="flex justify-between items-center py-2"><span class="text-blue-300 text-sm font-medium">Message</span> <span class="text-white font-semibold text-sm" id="payment-message-display">Congratulations Brother</span>
       </div>
-     </div><!-- Pay Button --> <button id="pay-button" class="w-full bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-indigo-900 font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3 shadow-lg">
-      <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-      </svg> Pay via UPI </button>
-     <p class="text-gray-400 text-xs text-center mt-3">Scan QR or tap button to pay via any UPI app</p>
+     </div><!-- Pay Button --> <button id="pay-button" class="button-shine w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 hover:from-blue-600 hover:via-blue-700 hover:to-blue-600 text-white font-black py-5 px-6 rounded-2xl transition-all duration-300 transform hover:scale-[1.03] hover:shadow-2xl active:scale-[0.98] flex items-center justify-center gap-3 text-lg shadow-xl">
+      <svg class="w-7 h-7" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z" />
+      </svg> Pay via UPI Apps </button>
+     <p class="text-blue-300 text-xs text-center mt-4 font-medium">Scan QR code or click button to open UPI apps instantly</p>
     </div><!-- Verification Proof Section -->
-    <div class="glass-card rounded-2xl p-6 mb-6">
-     <div class="flex items-center gap-3 mb-4">
-      <div class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center">
-       <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+    <div class="glass-card rounded-3xl p-7 mb-8 slide-up" style="animation-delay: 0.8s;">
+     <div class="flex items-center gap-4 mb-6">
+      <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+       <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
        </svg>
       </div>
-      <h3 class="text-indigo-900 font-semibold text-lg">Verification Proof</h3>
+      <div>
+       <h3 class="text-slate-800 font-black text-xl">Verification Proof</h3>
+       <p class="text-slate-500 text-sm font-medium">Official giveaway confirmation</p>
+      </div>
      </div>
      <div class="space-y-4"><!-- Proof Channel -->
-      <div class="flex justify-between items-center py-3 border-b border-gray-100"><span class="text-gray-500 text-sm">Proof Channel</span> <a id="whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-green-600 font-medium hover:text-green-700 transition-colors">
-        <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg><span id="whatsapp-display">WhatsApp</span> </a>
+      <div class="flex justify-between items-center py-4 border-b-2 border-slate-100"><span class="text-slate-500 text-sm font-semibold">Proof Channel</span> <a id="whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-green-600 font-bold hover:text-green-700 transition-colors hover:scale-105 transform">
+        <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg><span id="whatsapp-display" class="text-base">WhatsApp</span> </a>
       </div><!-- Date -->
-      <div class="flex justify-between items-center py-3 border-b border-gray-100"><span class="text-gray-500 text-sm">Date</span> <span class="text-indigo-900 font-medium" id="date-display">15 January 2025</span>
+      <div class="flex justify-between items-center py-4 border-b-2 border-slate-100"><span class="text-slate-500 text-sm font-semibold">Verification Date</span> <span class="text-slate-800 font-bold" id="date-display">15 January 2025</span>
       </div><!-- Developer -->
-      <div class="flex justify-between items-center py-3 border-b border-gray-100"><span class="text-gray-500 text-sm">Developer</span> <span class="text-indigo-900 font-medium" id="developer-display">TechGiveaways</span>
+      <div class="flex justify-between items-center py-4 border-b-2 border-slate-100"><span class="text-slate-500 text-sm font-semibold">Developer Name</span> <span class="text-slate-800 font-bold" id="developer-display">TechGiveaways</span>
       </div><!-- Status -->
-      <div class="flex justify-between items-center py-3"><span class="text-gray-500 text-sm">Status</span> <span class="inline-flex items-center gap-1.5 bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium" id="status-display"> <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Verified </span>
+      <div class="flex justify-between items-center py-4"><span class="text-slate-500 text-sm font-semibold">Verification Status</span> <span class="inline-flex items-center gap-2 bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 px-4 py-2 rounded-xl text-sm font-black shadow-sm" id="status-display"> <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-lg"></span> Verified </span>
       </div>
      </div>
     </div><!-- Footer -->
-    <div class="text-center text-gray-500 text-xs space-y-2 pb-4">
-     <p>This is an official giveaway announcement</p>
-     <p>Powered by <span id="footer-developer" class="text-amber-400 font-medium">TechGiveaways</span></p>
+    <div class="text-center space-y-3 pb-6 slide-up" style="animation-delay: 1s;">
+     <div class="flex items-center justify-center gap-2 text-slate-400">
+      <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+      </svg>
+      <p class="text-sm font-semibold">Official Verified Giveaway Announcement</p>
+     </div>
+     <p class="text-slate-500 text-xs font-medium">Powered by <span id="footer-developer" class="text-blue-400 font-bold">TechGiveaways</span></p>
+     <p class="text-slate-600 text-xs">© 2025 All Rights Reserved</p>
     </div>
    </div>
   </div>
@@ -174,29 +300,29 @@
     // ============================================
     const defaultConfig = {
       // Winner Details
-      winner_name: "Rahul Kumar",
-      prize_amount: "₹200",
+      winner_name: "Suraj Pandey",
+      prize_amount: "₹500",
       
       // UPI Payment Details
       upi_id: "surajpandey798938-2@oksbi",
-      payment_amount: "20",
+      payment_amount: "25",
       payment_message: "Congratulations Brother",
       
       // Verification Details
       proof_channel: "917989386499",
       verification_date: "15 January 2025",
-      developer_name: "Suraj",
+      developer_name: "@eternal_lens",
       verification_status: "Verified"
     };
     // ============================================
     
-    // Generate QR Code using QR Server API
+    // Generate QR Code using Google Charts API (more reliable)
     function generateQRCode(upiId, amount, message) {
       const upiUrl = `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Winner&am=${amount}&cu=INR&tn=${encodeURIComponent(message)}`;
-      const qrApiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiUrl)}`;
+      const qrApiUrl = `https://chart.googleapis.com/chart?cht=qr&chs=400x400&chl=${encodeURIComponent(upiUrl)}&choe=UTF-8`;
       
       const qrContainer = document.getElementById('qr-code');
-      qrContainer.innerHTML = `<img src="${qrApiUrl}" alt="UPI QR Code" class="w-48 h-48" onerror="this.src=''; this.alt='QR Code failed to load'; this.parentElement.innerHTML='<div class=\\'text-gray-500 text-center p-4\\'>QR Code unavailable</div>';">`;
+      qrContainer.innerHTML = `<img src="${qrApiUrl}" alt="UPI Payment QR Code" class="w-56 h-56 rounded-lg" style="image-rendering: crisp-edges;" onload="this.style.opacity='1'; this.style.transform='scale(1)';" style="opacity: 0; transform: scale(0.8); transition: all 0.3s ease;" onerror="this.src=''; this.alt='QR Code failed to load'; this.parentElement.innerHTML='<div class=\\'text-blue-400 text-center p-6 text-sm font-semibold\\'>QR Code temporarily unavailable<br>Use Pay Button below</div>';">`;
     }
     
     // Generate UPI deep link
@@ -204,23 +330,25 @@
       return `upi://pay?pa=${encodeURIComponent(upiId)}&pn=Winner&am=${amount}&cu=INR&tn=${encodeURIComponent(message)}`;
     }
     
-    // Create confetti effect
+    // Create enhanced confetti effect
     function createConfetti() {
-      const colors = ['#fbbf24', '#f59e0b', '#818cf8', '#6366f1', '#22c55e', '#ef4444'];
+      const colors = ['#3b82f6', '#60a5fa', '#93c5fd', '#2563eb', '#1e40af', '#dbeafe'];
       const container = document.getElementById('confetti-container');
       
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 80; i++) {
         setTimeout(() => {
           const confetti = document.createElement('div');
           confetti.className = 'confetti';
           confetti.style.left = Math.random() * 100 + '%';
           confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-          confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-          confetti.style.animationDelay = Math.random() * 0.5 + 's';
+          confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+          confetti.style.animationDelay = Math.random() * 0.3 + 's';
+          confetti.style.width = (Math.random() * 6 + 10) + 'px';
+          confetti.style.height = (Math.random() * 6 + 10) + 'px';
           container.appendChild(confetti);
           
-          setTimeout(() => confetti.remove(), 5000);
-        }, i * 50);
+          setTimeout(() => confetti.remove(), 6000);
+        }, i * 40);
       }
     }
     
@@ -262,7 +390,7 @@
       
       const status = config.verification_status || defaultConfig.verification_status;
       document.getElementById('status-display').innerHTML = `
-        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        <span class="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse shadow-lg"></span>
         ${status}
       `;
     }
@@ -304,7 +432,10 @@
     }
     
     // Trigger confetti on load
-    setTimeout(createConfetti, 500);
+    setTimeout(createConfetti, 800);
+    
+    // Repeat confetti every 10 seconds
+    setInterval(createConfetti, 10000);
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd6533d41a5c1a1',t:'MTc2ODMyMjMxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bd6b4e4a524c1a1',t:'MTc2ODMyNjMyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
